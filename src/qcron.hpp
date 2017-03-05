@@ -31,7 +31,7 @@ public:
 
 signals:
     void activated(QString id);
-    void deactivated();
+    void deactivated(QString id);
 
 private:
     QString _id;

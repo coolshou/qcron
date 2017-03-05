@@ -66,7 +66,7 @@ _checkState()
     {
         if (_is_active)
         {
-            emit deactivated();
+            emit deactivated(_id);
             _is_active = false;
         }
         interval_ms = QDateTime::currentDateTime().secsTo(next()) * 1000;
