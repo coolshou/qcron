@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.5)
+
 set(${PROJECT}_SRC_FILES
   qcron.cpp
   qcronfield.cpp
@@ -9,10 +11,14 @@ set(${PROJECT}_HEADERS
   qcron.hpp
   )
 
+set(CMAKE_AUTOMOC ON)
+find_package(Qt5Core REQUIRED)
+include_directories(${Qt5Core_INCLUDE_DIRS})
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # Declaration.
 
 add_library(${PROJECT} SHARED ${${PROJECT}_SRC_FILES})
-qt5_use_modules(${PROJECT} ${QT_COMPONENTS})
+
 set_target_properties(${PROJECT} PROPERTIES
   PUBLIC_HEADER "${${PROJECT}_HEADERS}"
   COMPILE_FLAGS "${EQUILAB_CXX_FLAGS}")
