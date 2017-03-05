@@ -18,11 +18,12 @@ QCron()
 /******************************************************************************/
 
 QCron::
-QCron(const QString & pattern)
+QCron(const QString& id, const QString & pattern)
 {
     _init();
     _parsePattern(pattern);
     _checkState();
+    _id = id;
 }
 
 /******************************************************************************/
@@ -57,7 +58,7 @@ _checkState()
     int interval_ms = 0;
     if (match(QDateTime::currentDateTime()))
     {
-        emit activated();
+        emit activated(_id);
         _is_active = true;
         interval_ms = 1000 * 60; // one minute
     }

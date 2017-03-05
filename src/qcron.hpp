@@ -11,7 +11,7 @@ class QCron : public QObject
 
 public:
     QCron();
-    QCron(const QString & pattern);
+    QCron(const QString& id, const QString & pattern);
     ~QCron();
 
     // Accessors.
@@ -30,10 +30,11 @@ public:
     void add(QDateTime & dt, EField field, int value);
 
 signals:
-    void activated();
+    void activated(QString id);
     void deactivated();
 
 private:
+    QString _id;
     bool _is_valid;
     bool _is_active;
     QString _error;
