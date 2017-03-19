@@ -23,6 +23,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wredundant-decls \
 -Wextra -Wall -Werror -Winvalid-pch -Wredundant-decls -Wformat=2 \
 -Wmissing-format-attribute -Wformat-nonliteral")
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Werror=sign-compare")
+
 option(WITH_UNIT_TESTS "enable building unit test executable" OFF)
 #option(WITH_BENCHMARK "enable building benchmark executable" OFF)
 
